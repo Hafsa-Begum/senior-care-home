@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Personal Care Services for Senior ",
+        "description": "Our personal caregivers offer assistance with activities such as, Personal grooming, bathing, toileting, and hygiene tasks, Mobility and transfers, Medication reminders and monitoring, Companionship, Light housekeeping, meal planning, and meal preparation,Shopping and errands ",
+        "price": 100,
+        "image": "https://i.ibb.co/XLY7ZtX/img3.png "
+    },
+    {
+        "id": 2,
+        "name": "Skilled Nursing Services ",
+        "description": "Trained carepersons provide assistance with medication management, activities of daily living, engaging programming, and coordination with outside healthcare providers. ",
+        "price": 150,
+        "image": " https://i.ibb.co/QMHS6Mk/img2.png"
+    },
+    {
+        "id": 3,
+        "name": "Special 24/7 Day Support ",
+        "description": "Our 24/7 Day support services are specially designed to provide additional assistance to enhance your loved one’s independence. ",
+        "price": 120,
+        "image": "https://i.ibb.co/7C4WrzY/pexels-andrea-piacquadio-3768131.jpg "
+    },
+    {
+        "id": 4,
+        "name": "Respite Care for Seniors ",
+        "description": " Many seniors prefer to age in their own home, but this can grow more and more difficult as the years pass. Your loved one doesn’t need to give up on the familiarity and comfort of their home, simply because they cannot remain completely independent. Our respite care services are specially designed to provide additional assistance to enhance your loved one’s independence.",
+        "price": 180,
+        "image": "https://i.ibb.co/q5fS7n1/Stock-Snap-FX16-JTHQ3-J.jpg "
+    },
+    {
+        "id": 5,
+        "name": "After Surgery Special Care Services ",
+        "description": " Our after surgery special care services are specially designed to provide additional assistance to enhance your loved one’s independence.",
+        "price": 160,
+        "image": " https://i.ibb.co/Cb834GB/pexels-kampus-production-7551683.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Companion Care Services ",
+        "description": " Although most elderly people prefer to remain in the privacy and comfort of their own home, there are quite a few seniors that require a Care Giver while in their retirement homes, community centers.",
+        "price": 200,
+        "image": "https://i.ibb.co/6Z7w0kV/pexels-andrea-piacquadio-3791664.jpg "
+    }
+]
