@@ -26,7 +26,7 @@ const Header = () => {
                         <Nav.Link className='menu-item' as={HashLink} to="/home#Career">Career</Nav.Link>
                         <Nav.Link className='menu-item' as={HashLink} to="/home#faqs">FAQs</Nav.Link>
                         {
-                            user.displayName ?
+                            user?.email ?
                                 <button
                                     onClick={logOut} style={{ backgroundColor: "tomato" }} className="btn text-white">Logout</button>
                                 :
@@ -34,7 +34,7 @@ const Header = () => {
                         }
 
                         <Navbar.Text>
-                            Signed in as: <Link className='menu-item' to="/login">{user.displayName}</Link>
+                            Signed in as: <Link className='menu-item' to="/login">{user?.displayName}</Link>
                         </Navbar.Text>
                     </Navbar.Collapse>
 

@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const { signInUsingGoogle, processLogin } = useAuth();
+    const { signInUsingGoogle, processLogin, setUser, setIsLoading } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
+    const location = useLocation();
+    const history = useHistory();
+    const redirects_uri = location.state?.from || '/home';
 
     const handleEmailChange = (e) => {
         console.log(e.target.value);
@@ -18,10 +22,20 @@ const Login = () => {
         console.log(e.target.value);
         setPassword(e.target.value);
     };
-    const handleLogin = (e) => {
+    const handleEmailAndPasswordLogin = (e) => {
         processLogin(email, password)
         if (password !== e.target.value)
             setError('Sorry, Invalid Password!')
+    }
+    const handleGoogleLogin = () => {
+        setIsLoading(true);
+        signInUsingGoogle()
+            .then(result => {
+                console.log(result.user);
+                setUser(result.user);
+                history.push(redirects_uri);
+            })
+            .finally(() => setIsLoading(false))
     }
     return (
         <div>
@@ -45,19 +59,13 @@ const Login = () => {
                                 <input onChange={handlePasswordChange} type="password"
                                     placeholder="Enter Your Pasword" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required />
                             </div>
-                            {/* <div>
-                                <input onChange={handleEmailChange} type="email"
-                                    placeholder="Enter Your Email" name="" id="" required />
-                            </div>
-                            <div>
-                                <input onChange={handlePasswordChange}
-                                    type="password"
-                                    placeholder="Enter Your Pasword" name="" id="" required />
-                            </div> */}
-                            <button onClick={handleLogin} className="btn btn-regular">Sign-in</button>
+
+                            <button onClick={handleEmailAndPasswordLogin} className="btn btn-regular">Sign-in</button>
+
                             <p>New member? Please <Link to='/register'>Register</Link></p>
-                            <div>------------------------or-------------------------------</div>
-                            <button onClick={signInUsingGoogle} className="btn btn-warning">Google Sign in</button>
+
+                            <div>------------------------or------------------------</div>
+                            <button onClick={handleGoogleLogin} className="btn btn-warning">Google Sign in</button>
                             <h1 className='my-5 text-danger'>{error}</h1>
                         </div>
 

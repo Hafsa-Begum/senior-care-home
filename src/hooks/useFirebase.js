@@ -8,18 +8,19 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [name, setName] = useState('');
 
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
-    const googleProvider = new GoogleAuthProvider();
+
 
     const signInUsingGoogle = () => {
+        const googleProvider = new GoogleAuthProvider();
         // setIsLoading(true);
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                console.log(result.user);
-                setUser(result.user);
-            })
+        return signInWithPopup(auth, googleProvider)
+        // .then(result => {
+        //     console.log(result.user);
+        //     setUser(result.user);
+        // })
         // .finally(() => setIsLoading(false))
     };
     //register using email and password
@@ -45,8 +46,8 @@ const useFirebase = () => {
         updateProfile(auth.currentUser, {
             displayName: name
         })
-            .then(() => {
-
+            .then((result) => {
+                setUser(result?.user);
             });
 
     }
@@ -61,17 +62,17 @@ const useFirebase = () => {
             } else {
                 setUser({});
             }
-            // setIsLoading(false);
+            setIsLoading(false);
         });
         return () => unsubscribed;
-    }, [])
+    }, [isLoading])
     const logOut = () => {
-        // setIsLoading(true);
+        setIsLoading(true);
         signOut(auth)
             .then(() => {
                 setUser({})
             })
-        // .finally(() => setIsLoading(false))
+            .finally(() => setIsLoading(false))
     }
 
     return {
@@ -80,8 +81,10 @@ const useFirebase = () => {
         logOut,
         createUser,
         processLogin,
-        handleNameChange
-        // isLoading
+        handleNameChange,
+        setUser,
+        isLoading,
+        setIsLoading
     };
 };
 

@@ -15,8 +15,8 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h1 style={{ fontSize: "48px" }} className='text-primary' >Welcome to Senior Care Home</h1>
-                        <p>We ensure you a certified care for your favourite one from us.</p>
+                        <h1 style={{ fontSize: "68px" }} className='my-5' >Welcome to <span style={{ color: 'tomato' }}>Senior Care Home</span> Everybody</h1>
+                        <h4 className='' style={{ color: '#ffc300' }}>We ensure you a certified care for your favourite one from us.</h4>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -28,8 +28,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h1>For Your Comfort Quality Home Care for Seniors</h1>
-                        <p>We ensure you a certified care for your favourite one from us.</p>
+                        <h1 style={{ fontSize: "68px" }} className='my-5'>For Your Comfort <span style={{ color: 'tomato' }}>Quality Home Care</span> for Seniors</h1>
+                        <h4 className='text-dark'>We ensure you a certified care for your favourite one from us.</h4>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -42,8 +42,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption>
-                        <h1>We Take Pride in Fine Old Age Home</h1>
-                        <p>We ensure you a certified care for your favourite one from us.</p>
+                        <h1 style={{ fontSize: "68px" }} className='my-5'>We Take Pride in <span style={{ color: 'tomato' }}>Fine Old Age</span> Home </h1>
+                        <h4 style={{ color: '#ffc300' }}>We ensure you a certified care for your favourite one from us.</h4>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
