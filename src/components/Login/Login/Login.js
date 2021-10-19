@@ -7,6 +7,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const handleEmailChange = (e) => {
         console.log(e.target.value);
@@ -17,8 +18,10 @@ const Login = () => {
         console.log(e.target.value);
         setPassword(e.target.value);
     };
-    const handleLogin = () => {
+    const handleLogin = (e) => {
         processLogin(email, password)
+        if (password !== e.target.value)
+            setError('Sorry, Invalid Password!')
     }
     return (
         <div>
@@ -30,8 +33,19 @@ const Login = () => {
                 </div>
                 <div className="col-md-6 col-12">
                     <div>
-                        <div>
-                            <div>
+                        <div className='mt-5 w-50 pt-5 mx-5'>
+                            <h1 className='mt-5'>Please Login</h1>
+                            <div className='underline mb-5 mx-auto'></div>
+                            <div className="input-group mb-3">
+                                <input onChange={handleEmailChange} type="email"
+                                    placeholder="Enter Your Email" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required />
+                            </div>
+
+                            <div className="input-group mb-3">
+                                <input onChange={handlePasswordChange} type="password"
+                                    placeholder="Enter Your Pasword" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required />
+                            </div>
+                            {/* <div>
                                 <input onChange={handleEmailChange} type="email"
                                     placeholder="Enter Your Email" name="" id="" required />
                             </div>
@@ -39,11 +53,14 @@ const Login = () => {
                                 <input onChange={handlePasswordChange}
                                     type="password"
                                     placeholder="Enter Your Pasword" name="" id="" required />
-                            </div>
-                            <button onClick={handleLogin} className="btn btn-primary">Sign-in</button>
+                            </div> */}
+                            <button onClick={handleLogin} className="btn btn-regular">Sign-in</button>
+                            <p>New member? Please <Link to='/register'>Register</Link></p>
+                            <div>------------------------or-------------------------------</div>
+                            <button onClick={signInUsingGoogle} className="btn btn-warning">Google Sign in</button>
+                            <h1 className='my-5 text-danger'>{error}</h1>
                         </div>
-                        <p>New member at Senior Care Home? Please <Link to='/register'>Register</Link></p>
-                        <button onClick={signInUsingGoogle} className="btn btn-warning">Google Sign in</button>
+
                     </div>
                 </div>
             </div>

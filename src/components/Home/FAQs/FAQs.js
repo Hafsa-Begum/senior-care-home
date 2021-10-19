@@ -4,11 +4,12 @@ import { Accordion } from 'react-bootstrap';
 const FAQs = () => {
     return (
         <div id='faqs' className='my-5'>
-            <h1 className='my-5'>Frequently Asked Questions</h1>
+            <h1 className='mt-5'>Frequently Asked Questions</h1>
+            <div className='underline mb-5 mx-auto'></div>
             <div className="row">
 
                 <div className="col-md-6 mt-5 pt-5">
-                    <Accordion>
+                    <Accordion className='mx-5'>
                         <Accordion.Item eventKey="0">
                             <Accordion.Header>How do I get senior care home services when I need it?</Accordion.Header>
                             <Accordion.Body>

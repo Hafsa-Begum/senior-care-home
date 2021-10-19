@@ -1,0 +1,9 @@
+.menu .menu-item{
+    color: white;
+    font-size: 20px;
+}
+
+.menu .menu-item:hover{
+    background-color: rgb(233, 119, 98);
+    border-radius: 10px;
+}

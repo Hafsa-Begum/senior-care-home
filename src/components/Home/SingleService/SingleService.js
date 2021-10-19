@@ -18,7 +18,7 @@ const SingleService = () => {
                 <p>{selectedService?.description}</p>
                 <h2>Pay: $ {selectedService?.price}</h2>
                 <Link to='/home'>
-                    <button className="btn btn-info">Go Back</button>
+                    <button className="btn btn-regular">Go Back</button>
                 </Link>
             </div>
         </div>

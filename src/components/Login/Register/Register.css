@@ -1,0 +1,12 @@
+.btn-regular{
+    background-color: #03045e;
+    color: white;
+}
+h1{
+    color: #03045e;
+}
+.underline{
+    width: 70px;
+    height: 3px;
+    background-color: tomato;
+}
