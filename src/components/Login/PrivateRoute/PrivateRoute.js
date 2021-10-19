@@ -9,22 +9,25 @@ const PrivateRoute = ({ children, ...rest }) => {
     if (isLoading) {
         return <Spinner animation="border" variant="dark" />
     }
+    else {
 
-    return (
-        <Route
-            {...rest}
-            render={({ location }) =>
-                user?.email ? (children) : (<Redirect
-                    to={{
-                        pathname: "/login",
-                        state: { from: location }
-                    }}
-                ></Redirect>)
-            }
-        >
 
-        </Route>
-    );
-};
+        return (
+            <Route
+                {...rest}
+                render={({ location }) =>
+                    user?.email ? (children) : (<Redirect
+                        to={{
+                            pathname: "/login",
+                            state: { from: location }
+                        }}
+                    ></Redirect>)
+                }
+            >
+
+            </Route>
+        );
+    };
+}
 
 export default PrivateRoute;

@@ -10,6 +10,7 @@ import AuthProvider from './context/AuthProvider';
 import PrivateRoute from '../src/components/Login/PrivateRoute/PrivateRoute';
 import Footer from './components/Shared/Footer/Footer';
 import Register from './components/Login/Register/Register';
+import TeamMembers from './components/Home/TeamMembers/TeamMembers';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route exact path='/services'>
               <Services></Services>
+            </Route>
+            <Route exact path='/teamMembers'>
+              <TeamMembers></TeamMembers>
             </Route>
             <PrivateRoute exact path='/service/:serviceId'>
               <SingleService></SingleService>

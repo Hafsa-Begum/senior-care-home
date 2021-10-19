@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Register.css';
 
@@ -9,6 +9,8 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+
+    // const location = useHistory();
 
 
 
@@ -22,7 +24,8 @@ const Register = () => {
         setPassword(e.target.value);
     };
     const handleRegister = () => {
-        createUser(email, password)
+        createUser(email, password);
+        // location.reload();
         if (password.length < 6) {
             setError('Password Must be of Six Characters or Long');
         }

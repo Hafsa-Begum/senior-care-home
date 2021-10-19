@@ -28,7 +28,6 @@ const Login = () => {
             setError('Sorry, Invalid Password!')
     }
     const handleGoogleLogin = () => {
-        setIsLoading(true);
         signInUsingGoogle()
             .then(result => {
                 console.log(result.user);
