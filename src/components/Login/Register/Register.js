@@ -49,7 +49,6 @@ const Register = () => {
 
     return (
         <div>
-            <h1 className='pt-5 text-danger'>{error}</h1>
             <div className="row">
                 <div className="col-md-6">
                     <div><img className='w-100' src="https://i.ibb.co/2S7L91P/Young-woman-checking-security-password-on-virsual-folder-Isometric-vector-illustration.jpg" alt="" /></div>
@@ -58,6 +57,7 @@ const Register = () => {
                     <div className='mt-5 w-50 pt-5 mx-5'>
                         <h1 style={{ color: "#03045e" }} className='mt-5'>Register</h1>
                         <div className='underline mb-5 mx-auto'></div>
+                        <p className='text-danger'>{error}</p>
                         <div className="input-group mb-3 mx-auto">
                             <input onChange={handleNameChange} type="text" placeholder="Enter Your Name" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required />
                         </div>

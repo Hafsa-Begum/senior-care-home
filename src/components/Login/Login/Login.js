@@ -7,7 +7,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+
 
     const location = useLocation();
     const history = useHistory();
@@ -69,7 +69,7 @@ const Login = () => {
 
                             <div>------------------------or------------------------</div>
                             <button onClick={handleGoogleLogin} className="btn btn-warning">Google Sign in</button>
-                            <h1 className='my-5 text-danger'>{error}</h1>
+
                         </div>
 
                     </div>
