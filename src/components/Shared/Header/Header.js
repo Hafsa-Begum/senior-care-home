@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import logo from '../../../navLogo.png';
 import { HashLink } from 'react-router-hash-link';
@@ -39,7 +39,12 @@ const Header = () => {
                         }
 
                         <Navbar.Text>
-                            Signed in as: <Link className='menu-item' to="/login">{user?.displayName}</Link>
+                            {
+                                user.email && <NavLink className='menu-item' style={{
+                                    textDecoration: 'none',
+                                    marginLeft: '15px'
+                                }} to="/login">Hi, <span style={{ color: 'tomato' }}>{user?.displayName}</span></NavLink>
+                            }
                         </Navbar.Text>
                     </Navbar.Collapse>
 

@@ -4,7 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 import './Register.css';
 
 const Register = () => {
-    const { createUser, setName, setUser } = useAuth();
+    const { createUser, setName, setUser, setNameChange } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -28,14 +28,22 @@ const Register = () => {
             .then(result => {
                 setUser(result.user);
                 console.log(result.user);
+                updateUserName();
+                window.location.reload();
             })
         // location.reload();
-        if (password.length < 8) {
-            setError('Password Must be of Eight Characters or Long');
+        if (password.length < 6) {
+            setError('Password Must be of Six Characters or Long');
         }
         // if (/^[a-zA-Z]$/.test(password)) {
         //     setError('Password should contain atleast one number and one special character')
         // }
+    }
+    const updateUserName = () => {
+        setNameChange()
+            .then((result) => {
+                setUser(result?.user);
+            });
     }
 
     return (

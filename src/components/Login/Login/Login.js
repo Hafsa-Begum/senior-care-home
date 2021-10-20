@@ -3,7 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const { signInUsingGoogle, processLogin, setUser, setIsLoading, setNameChange } = useAuth();
+    const { signInUsingGoogle, processLogin, setUser, setIsLoading } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -26,17 +26,10 @@ const Login = () => {
         processLogin(email, password)
             .then(result => {
                 setUser(result.user);
-                console.log(result.user);
-                updateUserName();
-                window.location.reload();
+                history.push(redirects_uri);
             })
     }
-    const updateUserName = () => {
-        setNameChange()
-            .then((result) => {
-                setUser(result?.user);
-            });
-    }
+
     const handleGoogleLogin = () => {
         signInUsingGoogle()
             .then(result => {
