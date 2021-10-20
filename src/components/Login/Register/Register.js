@@ -17,6 +17,7 @@ const Register = () => {
 
     const handlePasswordChange = (e) => {
         console.log(e.target.value);
+
         setPassword(e.target.value);
     };
     const handleNameChange = (e) => {
@@ -24,20 +25,20 @@ const Register = () => {
         setName(e.target.value);
     }
     const handleRegister = () => {
+        if (password.length < 6) {
+            return setError('Password Must be of Six Characters or Long');
+
+        }
+        if (!/^[a-zA-Z]$/.test(password)) {
+            return setError('Password should contain atleast one number and one special character')
+        }
         createUser(email, password)
             .then(result => {
                 setUser(result.user);
                 console.log(result.user);
                 updateUserName();
-                window.location.reload();
+                //window.location.reload();
             })
-        // location.reload();
-        if (password.length < 6) {
-            setError('Password Must be of Six Characters or Long');
-        }
-        // if (/^[a-zA-Z]$/.test(password)) {
-        //     setError('Password should contain atleast one number and one special character')
-        // }
     }
     const updateUserName = () => {
         setNameChange()
@@ -48,6 +49,7 @@ const Register = () => {
 
     return (
         <div>
+            <h1 className='pt-5 text-danger'>{error}</h1>
             <div className="row">
                 <div className="col-md-6">
                     <div><img className='w-100' src="https://i.ibb.co/2S7L91P/Young-woman-checking-security-password-on-virsual-folder-Isometric-vector-illustration.jpg" alt="" /></div>
@@ -72,7 +74,7 @@ const Register = () => {
 
                         <button onClick={handleRegister} className="btn btn-regular">Register</button>
                         <p>Already a member? Please <Link to='/login'>Sign in</Link></p>
-                        <h1 className='my-5 text-danger'>{error}</h1>
+
                     </div>
 
                 </div>

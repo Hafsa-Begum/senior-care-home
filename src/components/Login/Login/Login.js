@@ -23,6 +23,7 @@ const Login = () => {
         setPassword(e.target.value);
     };
     const handleEmailAndPasswordLogin = () => {
+
         processLogin(email, password)
             .then(result => {
                 setUser(result.user);

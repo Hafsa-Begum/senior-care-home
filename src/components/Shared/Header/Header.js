@@ -40,7 +40,7 @@ const Header = () => {
 
                         <Navbar.Text>
                             {
-                                user.email && <NavLink className='menu-item' style={{
+                                user?.email && <NavLink className='menu-item' style={{
                                     textDecoration: 'none',
                                     marginLeft: '15px'
                                 }} to="/login">Hi, <span style={{ color: 'tomato' }}>{user?.displayName}</span></NavLink>
