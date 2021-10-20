@@ -1,0 +1,10 @@
+.bg-image{
+    
+        color: white;
+       background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://wp1.themexlab.com/m3/seniorsecurity/wp-content/uploads/2017/02/2.jpg.webp');
+       background-size: 100% 600px;
+       background-repeat: no-repeat;
+       /* background-position: center;   */
+       height: 100vh; 
+
+}

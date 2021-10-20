@@ -3,7 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
-    const { signInUsingGoogle, processLogin, setUser, setIsLoading } = useAuth();
+    const { signInUsingGoogle, processLogin, setUser, setIsLoading, setNameChange } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,10 +22,20 @@ const Login = () => {
         console.log(e.target.value);
         setPassword(e.target.value);
     };
-    const handleEmailAndPasswordLogin = (e) => {
+    const handleEmailAndPasswordLogin = () => {
         processLogin(email, password)
-        if (password !== e.target.value)
-            setError('Sorry, Invalid Password!')
+            .then(result => {
+                setUser(result.user);
+                console.log(result.user);
+                updateUserName();
+                window.location.reload();
+            })
+    }
+    const updateUserName = () => {
+        setNameChange()
+            .then((result) => {
+                setUser(result?.user);
+            });
     }
     const handleGoogleLogin = () => {
         signInUsingGoogle()
@@ -47,7 +57,7 @@ const Login = () => {
                 <div className="col-md-6 col-12">
                     <div>
                         <div className='mt-5 w-50 pt-5 mx-5'>
-                            <h1 className='mt-5'>Please Login</h1>
+                            <h1 className='mt-5'> Login</h1>
                             <div className='underline mb-5 mx-auto'></div>
                             <div className="input-group mb-3">
                                 <input onChange={handleEmailChange} type="email"
@@ -61,7 +71,7 @@ const Login = () => {
 
                             <button onClick={handleEmailAndPasswordLogin} className="btn btn-regular">Sign-in</button>
 
-                            <p>New member? Please <Link to='/register'>Register</Link></p>
+                            <p>Need an account? Please <Link to='/register'>Register</Link></p>
 
                             <div>------------------------or------------------------</div>
                             <button onClick={handleGoogleLogin} className="btn btn-warning">Google Sign in</button>

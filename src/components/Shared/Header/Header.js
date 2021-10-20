@@ -20,11 +20,15 @@ const Header = () => {
                     }} src={logo} className='rounded-circle' alt="" /><br /><h6 className='text-white fst-italic'>Senior Care Home</h6></Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end menu">
+
                         <Nav.Link className='menu-item' as={HashLink} to="/home#home">Home</Nav.Link>
+
                         <Nav.Link className='menu-item' as={HashLink} to="/home#services">Services</Nav.Link>
-                        <Nav.Link className='menu-item' as={HashLink} to="/home#teamMembers">Our Team</Nav.Link>
-                        <Nav.Link className='menu-item' as={HashLink} to="/home#features">Features</Nav.Link>
-                        <Nav.Link className='menu-item' as={HashLink} to="/home#Career">Career</Nav.Link>
+
+                        <Nav.Link className='menu-item' as={HashLink} to="/about">About</Nav.Link>
+
+                        <Nav.Link className='menu-item' as={HashLink} to="/Career">Career</Nav.Link>
+
                         <Nav.Link className='menu-item' as={HashLink} to="/home#faqs">FAQs</Nav.Link>
                         {
                             user?.email ?

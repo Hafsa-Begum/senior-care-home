@@ -10,7 +10,8 @@ import AuthProvider from './context/AuthProvider';
 import PrivateRoute from '../src/components/Login/PrivateRoute/PrivateRoute';
 import Footer from './components/Shared/Footer/Footer';
 import Register from './components/Login/Register/Register';
-import TeamMembers from './components/Home/TeamMembers/TeamMembers';
+import About from './components/About/About/About';
+import JobHere from './components/Home/Career/JobHere';
 
 function App() {
   return (
@@ -28,9 +29,12 @@ function App() {
             <Route exact path='/services'>
               <Services></Services>
             </Route>
-            <Route exact path='/teamMembers'>
-              <TeamMembers></TeamMembers>
+            <Route exact path='/about'>
+              <About></About>
             </Route>
+            <PrivateRoute exact path='/career'>
+              <JobHere></JobHere>
+            </PrivateRoute>
             <PrivateRoute exact path='/service/:serviceId'>
               <SingleService></SingleService>
             </PrivateRoute>

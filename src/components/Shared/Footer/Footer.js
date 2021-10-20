@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from '../../../navLogo.png'
+import logo from '../../../navLogo.png';
+import './Footer.css';
 
 const Footer = () => {
     return (
-        <div style={{
-            backgroundColor: "#03045e"
-        }} className='py-5 text-start px-5 text-white'>
+        <div className='py-5 text-start px-5 footer'>
             <div className="row pb-5">
                 <div className="col-md-3 col-sm-6 col-12 ">
                     <div className='me-5' >
@@ -26,7 +25,7 @@ const Footer = () => {
                 <div className="col-md-3 col-sm-6 col-12">
                     <div className='mx-auto'>
                         <h4 className='mb-5'>Follow us</h4>
-                        <div className='text-white'>
+                        <div className=''>
                             <i className="fab fa-facebook-f me-3 fs-1"></i>
                             <i className="fab fa-twitter me-3 fs-1"></i>
                             <i className="fab fa-google-plus-g me-3 fs-1"></i>
@@ -36,7 +35,9 @@ const Footer = () => {
                 </div>
                 <div className="col-md-3 col-sm-6 col-12"><h4 className='mb-5'>Subscribe</h4>
                     <p>Enter your email and we’ll send you latest information and plans.</p>
-                    <input className='border-top-0 border-start-0 border-end-0 rounded-3' type="email" placeholder='Your Email' />
+                    <input className='border-top-0 border-start-0 border-end-0 rounded-3 w-75' type="email" placeholder='Your Email' />
+                    <br />
+                    <button className="btn btn-light mt-4">Submit</button>
                 </div>
             </div>
             <div className='text-center'><p><small>Copyright © 2021. All rights reserved by, Senior Care Home</small></p>

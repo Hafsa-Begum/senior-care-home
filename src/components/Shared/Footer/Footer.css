@@ -1,0 +1,9 @@
+.footer{
+         color: white;
+        background-image: linear-gradient(rgba(3, 4, 94, 0.8), rgba(3, 4, 94, 0.8)), url('https://i.ibb.co/vQBMRtr/Successful-medical-team.jpg');
+        background-size: 100% 600px;
+        background-repeat: no-repeat;
+        /* background-position: center;   */
+        /* height: 100vh; */
+}
+

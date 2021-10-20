@@ -10,8 +10,8 @@ const TeamMembers = () => {
             .then(data => setTeamMembers(data))
     }, [])
     return (
-        <div id='teamMembers'>
-            <h1 className='mt-5'>Our dedicated TeamMembers</h1>
+        <div id='teamMembers' className='mb-5'>
+            <h1 className=''>Our dedicated Heros</h1>
             <div className='underline mb-5 mx-auto'></div>
             <div className="row mx-5">
                 {

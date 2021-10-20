@@ -6,7 +6,7 @@ initializeAuthentication();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    const [name, setName] = useState('')
+    const [name, setName] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
@@ -16,10 +16,6 @@ const useFirebase = () => {
         const googleProvider = new GoogleAuthProvider();
 
         return signInWithPopup(auth, googleProvider)
-        // .then(result => {
-        //     setUser(result.user);
-        // })
-        // .finally(() => setIsLoading(false));
     }
 
     // observe user state change
@@ -27,6 +23,7 @@ const useFirebase = () => {
         const unsubscribed = onAuthStateChanged(auth, user => {
             if (user) {
                 setUser(user);
+                console.log(user);
             }
             else {
                 setUser({})
@@ -44,36 +41,21 @@ const useFirebase = () => {
     }
     //register using email and password
     const createUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user);
-                console.log(result.user);
-            })
-    }
+        return createUserWithEmailAndPassword(auth, email, password)
+
+    };
     //signin using email and password
     const processLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user);
-                console.log(result.user);
-                setNameChange();
-            })
-    }
+        return signInWithEmailAndPassword(auth, email, password)
 
+    };
     //update user name
     const setNameChange = () => {
-        updateProfile(auth.currentUser, {
+        return updateProfile(auth.currentUser, {
             displayName: name
         })
-            .then((result) => {
-                setUser(result?.user);
-            });
+    };
 
-    }
-    const handleNameChange = (e) => {
-        console.log(e.target.value);
-        setName(e.target.value);
-    }
 
     return {
         user,
@@ -84,7 +66,8 @@ const useFirebase = () => {
         logOut,
         createUser,
         processLogin,
-        handleNameChange
+        setName,
+        setNameChange
     }
 }
 

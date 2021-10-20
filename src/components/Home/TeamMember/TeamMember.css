@@ -1,0 +1,13 @@
+.team-member{
+    background-color: #8587d638;
+    
+}
+
+.team-member img{
+    overflow: hidden;
+    transition: .4s;
+}
+.team-member img:hover{
+    transform: scale(1.05);
+    
+}

@@ -5,7 +5,7 @@ const Features = () => {
     return (
         <div id='features' className='my-5'>
             <h1 className='mt-5 pt-3'
-            >Features</h1>
+            >Life @ Senior Care Home</h1>
             <div className='underline mb-5 mx-auto'></div>
             <div className="row mx-5">
                 <div className="col-md-3 col-sm-6 col-12 feature">

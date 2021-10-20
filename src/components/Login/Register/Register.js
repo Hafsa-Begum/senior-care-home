@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Register.css';
 
 const Register = () => {
-    const { createUser, handleNameChange } = useAuth();
+    const { createUser, setName, setUser } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
-    // const location = useHistory();
-
-
 
     const handleEmailChange = (e) => {
         console.log(e.target.value);
@@ -23,15 +19,23 @@ const Register = () => {
         console.log(e.target.value);
         setPassword(e.target.value);
     };
+    const handleNameChange = (e) => {
+        console.log(e.target.value);
+        setName(e.target.value);
+    }
     const handleRegister = () => {
-        createUser(email, password);
+        createUser(email, password)
+            .then(result => {
+                setUser(result.user);
+                console.log(result.user);
+            })
         // location.reload();
-        if (password.length < 6) {
-            setError('Password Must be of Six Characters or Long');
+        if (password.length < 8) {
+            setError('Password Must be of Eight Characters or Long');
         }
-        if (/^[a-zA-Z]$/.test(password)) {
-            setError('Password should contain atleast one number and one special character')
-        }
+        // if (/^[a-zA-Z]$/.test(password)) {
+        //     setError('Password should contain atleast one number and one special character')
+        // }
     }
 
     return (
@@ -42,7 +46,7 @@ const Register = () => {
                 </div>
                 <div className="col-md-6">
                     <div className='mt-5 w-50 pt-5 mx-5'>
-                        <h1 style={{ color: "#03045e" }} className='mt-5'>Please Register</h1>
+                        <h1 style={{ color: "#03045e" }} className='mt-5'>Register</h1>
                         <div className='underline mb-5 mx-auto'></div>
                         <div className="input-group mb-3 mx-auto">
                             <input onChange={handleNameChange} type="text" placeholder="Enter Your Name" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required />
